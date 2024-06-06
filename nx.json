@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -43,6 +46,18 @@
       }
     }
   ],
+  "targetDefaults": {
+    "test": {
+      "dependsOn": [
+        "my-target"
+      ]
+    },
+    "nx:run-commands": {
+      "options": {
+        "parallel": false
+      }
+    }
+  },
   "generators": {
     "@nx/next": {
       "application": {
